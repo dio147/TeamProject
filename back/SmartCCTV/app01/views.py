@@ -6,7 +6,7 @@ import re
 from django.forms import ImageField
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, HttpResponse
-from models import ALLCCTV, class_info, student_daily_data, student_info, teacher_class, teacher_info, \
+from .models import ALLCCTV, class_info, student_daily_data, student_info, teacher_class, teacher_info, \
     teacher_account
 import json
 
