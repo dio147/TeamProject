@@ -1,0 +1,10 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>icons/举手_hands.png</file>
+    <file>icons/学士帽_bachelor-cap.png</file>
+    <file>icons/传入_afferent.png</file>
+    <file>icons/家庭_family.png</file>
+    <file>icons/AirPlay_airplay.png</file>
+    <file>icons/人像卡片上_people-top-card.png</file>
+  </qresource>
+</RCC>

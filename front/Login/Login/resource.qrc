@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>icons/电脑_computer.png</file>
+    <file>icons/关闭_close-one.png</file>
+  </qresource>
+</RCC>

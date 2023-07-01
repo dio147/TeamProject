@@ -1,0 +1,12 @@
+<RCC>
+  <qresource prefix="icons1">
+    <file>icons1/关闭_close-one.png</file>
+    <file>icons1/学位帽_degree-hat.png</file>
+    <file>icons1/电脑_computer.png</file>
+    <file>icons1/监控摄像头_monitor-camera.png</file>
+    <file>icons1/内部传输_internal-transmission.png</file>
+    <file>icons1/人像卡片上_people-top-card.png</file>
+    <file>icons1/人员_people.png</file>
+    <file>icons1/自选_optional.png</file>
+  </qresource>
+</RCC>
