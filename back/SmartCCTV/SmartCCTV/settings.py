@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -82,9 +82,9 @@ DATABASES = {
     # connect SmartCCTV database
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'test_1',
+        'NAME': 'test1',
         'USER': 'root',
-        'PASSWORD': '1983791415',
+        'PASSWORD': 'test123',
         'POST': '3306'
     }
 }

@@ -8,7 +8,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QTableWidget
 from PyQt5.QtGui import QPixmap
 import requests
 import json
-import pyqtgraph
+# import pyqtgraph
 import numpy
 from tkinter import Tk, filedialog
 import datetime
