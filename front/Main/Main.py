@@ -13,8 +13,15 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
+        self.MainWindow = MainWindow
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1100, 865)
+        MainWindow.setWindowFlags(QtCore.Qt.CustomizeWindowHint)
+        MainWindow.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        MainWindow.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+
+
+
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.layoutWidget = QtWidgets.QWidget(self.centralwidget)
@@ -568,6 +575,10 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         self.stackedWidget.setCurrentIndex(0)
         self.pushButton_13.clicked.connect(MainWindow.close)
+
+        MainWindow.setMouseTracking(True)
+        MainWindow._startPos = None
+
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -609,5 +620,17 @@ class Ui_MainWindow(object):
         self.label_26.setText(_translate("MainWindow", "班级号："))
         self.pushButton_14.setText(_translate("MainWindow", "保存"))
 
+    def mousePressEvent(self, event):
+        if event.button() == QtCore.Qt.LeftButton:
+            self._startPos = event.pos()
+
+    def mouseMoveEvent(self, event):
+        if self._startPos:
+            delta = event.pos() - self._startPos
+            self.MainWindow.move(self.pos() + delta)
+
+    def mouseReleaseEvent(self, event):
+        if event.button() == QtCore.Qt.LeftButton:
+            self._startPos = None
 
 import resource

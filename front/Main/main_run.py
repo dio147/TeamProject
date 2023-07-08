@@ -2,11 +2,12 @@ import Main
 import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow
 
-class pages_window(Main.Ui_MainWindow,QMainWindow):
+
+class pages_window(Main.Ui_MainWindow, QMainWindow):
     def __init__(self):
-        super(pages_window,self).__init__()
+        super(pages_window, self).__init__()
         self.setupUi(self)
-        #点击左侧第一个按钮切换到第一个页面
+        # 点击左侧第一个按钮切换到第一个页面
         self.pushButton.clicked.connect(self.display_page)
         # 点击左侧第二个按钮切换到第二个页面
         self.pushButton_2.clicked.connect(self.display_page2)
@@ -19,7 +20,6 @@ class pages_window(Main.Ui_MainWindow,QMainWindow):
         # 点击左侧第六个按钮切换到第六个页面
         self.pushButton_6.clicked.connect(self.display_page6)
         self.stackedWidget.setCurrentIndex(0)
-
 
     def display_page(self):
         self.stackedWidget.setCurrentIndex(0)
@@ -38,6 +38,7 @@ class pages_window(Main.Ui_MainWindow,QMainWindow):
 
     def display_page6(self):
         self.stackedWidget.setCurrentIndex(5)
+
 
 if __name__ == '__main__':
      app = QApplication(sys.argv)

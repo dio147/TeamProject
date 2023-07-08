@@ -17,6 +17,8 @@ import base64
 
 
 # Create your views here.
+# 处理GET请求时，读取名为"somename.jpg"的图片文件，并将其以Base64编码的形式包含在JSON响应中返回给客户端。
+# 另外，JSON响应还包含一个名为"update"的键，其值为10001。
 def testget(request):
     with open('somename.jpg', 'rb') as f:
         image_byte = base64.b64encode(f.read())
@@ -24,6 +26,7 @@ def testget(request):
     return JsonResponse({'file': image_str, 'update': 10001})
 
 
+# 处理POST请求时，从请求中获取名为"img"的文件对象，将其保存到'Images/somename.jpg'文件中，并返回一个JSON响应表示成功或未成功接收到请求。
 def testpost(request):
     if request.method == "POST":
         file = request.FILES['img']
@@ -35,6 +38,8 @@ def testpost(request):
     return JsonResponse('未成功接收', safe=False)
 
 
+# 处理POST请求时，根据请求的教师信息进行处理。如果教师信息已存在，则更新教师信息；
+# 如果教师信息不存在但教师账户存在，则创建新的教师信息；如果教师账户不存在，则返回错误信息。返回的JSON响应中的值表示操作的结果状态。
 def save_teacher_info(request):
     """
     返回值:
@@ -66,6 +71,7 @@ def save_teacher_info(request):
     return JsonResponse(-1, safe=False)
 
 
+# 处理POST请求时，根据请求的教师编号和班级信息创建新的班级。返回的JSON响应中的值表示操作的结果状态。
 def create_class(request):
     """
     返回值:
@@ -94,6 +100,7 @@ def create_class(request):
     # return JsonResponse(-1,safe=False)
 
 
+# 处理登录请求时，根据请求的账号和密码进行验证。返回的JSON响应中的值表示登录的结果状态，以及教师账户的教师ID。
 def login(request):
     """
     返回值:

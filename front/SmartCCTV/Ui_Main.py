@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QApplication, QMainWindow
 
 
 class Ui_MainWindow(object):
@@ -664,4 +665,12 @@ class Ui_MainWindow(object):
         self.pushButton_2.setText(_translate("MainWindow", "学生列表"))
         self.pushButton.setText(_translate("MainWindow", "班级概况"))
         self.pushButton_16.setText(_translate("MainWindow", "刷新"))
-import resource_rc
+
+if __name__ == '__main__':
+    import sys
+    app = QApplication(sys.argv)
+    win = Ui_MainWindow()
+    Main_win = QMainWindow()
+    win.setupUi(Main_win)
+    Main_win.show()
+    app.exec_()

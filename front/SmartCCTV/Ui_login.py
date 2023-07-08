@@ -9,6 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QApplication, QMainWindow
 
 
 class Ui_MainWindow(object):
@@ -146,4 +147,12 @@ class Ui_MainWindow(object):
         self.lineEdit_3.setPlaceholderText(_translate("MainWindow", "账号：输入教职工号"))
         self.lineEdit_4.setPlaceholderText(_translate("MainWindow", "密码：6-12位数字和英文字母组成"))
         self.pushButton_4.setText(_translate("MainWindow", "注册"))
-import resource_rc
+
+if __name__ == '__main__':
+    import sys
+    app = QApplication(sys.argv)
+    win = Ui_MainWindow()
+    Main_win = QMainWindow()
+    win.setupUi(Main_win)
+    Main_win.show()
+    app.exec_()
