@@ -8,7 +8,7 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QTableWidget
 from PyQt5.QtGui import QPixmap
 import requests
 import json
-# import pyqtgraph
+import pyqtgraph
 import numpy
 from tkinter import Tk, filedialog
 import datetime
@@ -66,14 +66,20 @@ class pages_window(Ui_Main.Ui_MainWindow, QMainWindow):
         self.pushButton_12.clicked.connect(self.bent_clss_cctv)
         # -------------------------------end test--------------------------------
 
-        # self.tableWidget.setItem(0,0,QTableWidgetItem("haha"))
         # 初始化combobox
         # init comboBox_4
         grade_list = ['2019', '2020', '2021', '2022']
         self.comboBox_4.addItems(grade_list)
-        self.comboBox.addItems(['1', '2', '3', '4'])
+        self.comboBox.addItems([])
 
     def tableSetRow(self, table, contentList, row):
+        '''
+        用于设置表格（table）中的一行（row）的内容
+        :param table: 表格
+        :param contentList:内容
+        :param row:行
+        :return:
+        '''
         i = 0
         for content in contentList:
             table.setItem(row, i, QTableWidgetItem(str(content)))
@@ -163,8 +169,8 @@ class pages_window(Ui_Main.Ui_MainWindow, QMainWindow):
 
     def generateGraphics(self, classID):
         print("#generating Graphics------------")
-        datelist = []
-        tempdate = datetime.date.today()
+        datelist = []  # 存储日期值
+        tempdate = datetime.date.today()  # 当前日期
         for i in range(7):
             tempdate = tempdate + datetime.timedelta(days=-1)
             datelist.append(tempdate)
@@ -272,7 +278,7 @@ class pages_window(Ui_Main.Ui_MainWindow, QMainWindow):
     def buttonFuc15(self):
         url = localhost + 'initStudentData/'
         reqCid = self.comboBox_6.currentText()
-        req = requests.post(url, {'cid': reqCid, 'date': datetime.date.today()+ datetime.timedelta(days=-1)})
+        req = requests.post(url, {'cid': reqCid, 'date': datetime.date.today() + datetime.timedelta(days=0)})
         dataList = json.loads(json.loads(req.text)['data'])
         print(dataList)
         self.tableWidget.setRowCount(len(dataList))
@@ -353,7 +359,7 @@ class pages_window(Ui_Main.Ui_MainWindow, QMainWindow):
             readfile = xlrd.open_workbook(f_path)
         except:
             print('not open')
-            QMessageBox.information(self, '提示', '表格存在班级号未创建！', QMessageBox.Yes, QMessageBox.Yes)
+            QMessageBox.information(self, '提示', '表格读取失败！', QMessageBox.Yes, QMessageBox.Yes)
             return
         table = readfile.sheets()[0]
         row_num = table.nrows
@@ -446,13 +452,9 @@ def runWindow():
     app = QApplication(sys.argv)
     win = pages_window()
     win.generateGraphics('c201914')
-    apply_stylesheet(win, theme='dark_teal.xml')
+    # apply_stylesheet(win, theme='dark_teal.xml')
     win.show()
     sys.exit(app.exec_())
-
-
-
-
 
 
 if __name__ == '__main__':

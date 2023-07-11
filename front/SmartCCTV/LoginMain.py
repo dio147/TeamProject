@@ -44,7 +44,13 @@ class login_window(login.Ui_MainWindow, QMainWindow):
             self.close()
             self.win.saveTeacherID(json.loads(req.text)['teacherID'])
             self.win.initData()
-            apply_stylesheet(self.win,theme='dark_teal.xml')
+            self.win.lineEdit_4.setReadOnly(True)
+            self.win.lineEdit_4.setText(self.win.teacherID)
+            self.win.lineEdit_5.setReadOnly(True)
+            self.win.lineEdit_5.setText(self.win.teacherID)
+            self.win.lineEdit_6.setReadOnly(True)
+            self.win.lineEdit_6.setText(self.win.teacherID)
+            # apply_stylesheet(self.win,theme='dark_teal.xml')
             self.win.show()
 
     def buttonFuc4(self):
@@ -56,6 +62,7 @@ class login_window(login.Ui_MainWindow, QMainWindow):
         req = requests.post(url, {'account': account, 'password': password})
         rply = json.loads(req.text)
         self.printMessageBox(['成功', '失败', '失败'], ['注册成功', '账号已存在', '请输入合规的账号密码'], rply)
+
 
     def change_widget2(self):
         self.widget_3.hide()
@@ -69,7 +76,7 @@ class login_window(login.Ui_MainWindow, QMainWindow):
 def runLogin():
     app = QApplication(sys.argv)
     loginUi = login_window()
-    apply_stylesheet(loginUi,theme='dark_teal.xml')
+
     loginUi.show()
     sys.exit(app.exec_())
 

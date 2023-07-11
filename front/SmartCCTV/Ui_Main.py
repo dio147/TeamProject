@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtGui import QColor
 
 
 class Ui_MainWindow(object):
@@ -18,6 +18,12 @@ class Ui_MainWindow(object):
         MainWindow.resize(1100, 865)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
+        self.label_back = QtWidgets.QLabel(self.centralwidget)
+        self.label_back.setGeometry(QtCore.QRect(10, 0, 1081, 841))
+        self.label_back.setStyleSheet("border-radius:30px;\n"
+                                      "background-color: rgb(188, 234, 255);")
+        self.label_back.setText("")
+        self.label_back.setObjectName("label_back")
         self.layoutWidget = QtWidgets.QWidget(self.centralwidget)
         self.layoutWidget.setGeometry(QtCore.QRect(0, 0, 1101, 841))
         self.layoutWidget.setObjectName("layoutWidget")
@@ -50,9 +56,10 @@ class Ui_MainWindow(object):
         self.groupBox_9.setTitle("")
         self.groupBox_9.setObjectName("groupBox_9")
         self.label_4 = QtWidgets.QLabel(self.groupBox_9)
-        self.label_4.setGeometry(QtCore.QRect(30, 20, 81, 71))
-        self.label_4.setStyleSheet("image: url(:/icons/icons/举手_hands.png);")
+        self.label_4.setGeometry(QtCore.QRect(30, 20, 71, 71))
         self.label_4.setText("")
+        self.label_4.setPixmap(QtGui.QPixmap("icons/student.png"))
+        self.label_4.setScaledContents(True)
         self.label_4.setObjectName("label_4")
         self.textBrowser = QtWidgets.QTextBrowser(self.groupBox_9)
         self.textBrowser.setGeometry(QtCore.QRect(130, 50, 71, 31))
@@ -68,9 +75,10 @@ class Ui_MainWindow(object):
         self.label_5.setFont(font)
         self.label_5.setObjectName("label_5")
         self.label_6 = QtWidgets.QLabel(self.groupBox_9)
-        self.label_6.setGeometry(QtCore.QRect(260, 20, 81, 71))
-        self.label_6.setStyleSheet("image: url(:/icons/icons/学士帽_bachelor-cap.png);")
+        self.label_6.setGeometry(QtCore.QRect(260, 20, 71, 71))
         self.label_6.setText("")
+        self.label_6.setPixmap(QtGui.QPixmap("icons/学位帽_degree-hat.png"))
+        self.label_6.setScaledContents(True)
         self.label_6.setObjectName("label_6")
         self.label_7 = QtWidgets.QLabel(self.groupBox_9)
         self.label_7.setGeometry(QtCore.QRect(360, 20, 81, 16))
@@ -91,7 +99,15 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.pushButton_7.setFont(font)
-        self.pushButton_7.setStyleSheet("")
+        self.pushButton_7.setStyleSheet("#pushButton_7{\n"
+"    \n"
+"    \n"
+"    background-color: rgb(168, 214, 255);\n"
+"    border-radius:6px;\n"
+"    border:1px solid rgb(0,0,0);\n"
+"    font:20px;\n"
+"    font-weight: bold;\n"
+"}")
         self.pushButton_7.setObjectName("pushButton_7")
         self.comboBox_5 = QtWidgets.QComboBox(self.groupBox_9)
         self.comboBox_5.setGeometry(QtCore.QRect(180, 120, 321, 31))
@@ -104,10 +120,14 @@ class Ui_MainWindow(object):
         self.scrollArea.setObjectName("scrollArea")
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
         self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 98, 1800))
+
+        self.setStyleSheet("background-color: %s;" % QColor(188, 234, 255).name())
+
         self.scrollAreaWidgetContents.setMinimumSize(QtCore.QSize(0, 1800))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
         self.groupBox = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)
         self.groupBox.setGeometry(QtCore.QRect(10, 10, 810, 500))
+        self.groupBox.setStyleSheet("QGroupBox { background-color: %s; }" % QColor(188, 234, 255).name())
         self.groupBox.setObjectName("groupBox")
         self.label_27 = QtWidgets.QLabel(self.groupBox)
         self.label_27.setGeometry(QtCore.QRect(50, 30, 700, 450))
@@ -178,7 +198,15 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.pushButton_15.setFont(font)
-        self.pushButton_15.setStyleSheet("")
+        self.pushButton_15.setStyleSheet("#pushButton_15{\n"
+"    \n"
+"    \n"
+"    background-color: rgb(168, 214, 255);\n"
+"    border-radius:6px;\n"
+"    border:1px solid rgb(0,0,0);\n"
+"    font:20px;\n"
+"    font-weight: bold;\n"
+"}")
         self.pushButton_15.setObjectName("pushButton_15")
         self.stackedWidget.addWidget(self.page_2)
         self.page_3 = QtWidgets.QWidget()
@@ -244,18 +272,26 @@ class Ui_MainWindow(object):
         self.lineEdit_4.setObjectName("lineEdit_4")
         self.pushButton_8 = QtWidgets.QPushButton(self.groupBox_3)
         self.pushButton_8.setGeometry(QtCore.QRect(200, 460, 121, 28))
-        self.pushButton_8.setStyleSheet("")
+        self.pushButton_8.setStyleSheet("#pushButton_8{\n"
+"    \n"
+"    \n"
+"    background-color: rgb(168, 214, 255);\n"
+"    border-radius:6px;\n"
+"    border:1px solid rgb(0,0,0);\n"
+"    font:20px;\n"
+"    font-weight: bold;\n"
+"}")
         self.pushButton_8.setObjectName("pushButton_8")
         self.groupBox_16 = QtWidgets.QGroupBox(self.widget_6)
         self.groupBox_16.setGeometry(QtCore.QRect(10, 0, 861, 81))
         self.groupBox_16.setTitle("")
         self.groupBox_16.setObjectName("groupBox_16")
         self.label_9 = QtWidgets.QLabel(self.groupBox_16)
-        self.label_9.setGeometry(QtCore.QRect(20, 30, 121, 21))
-        font = QtGui.QFont()
-        font.setPointSize(11)
-        font.setBold(True)
-        font.setWeight(75)
+        self.label_9.setGeometry(QtCore.QRect(300, 30, 200, 32))
+        self.label_9.setStyleSheet("#label_9{\n"
+                                   "    font:30px;\n"
+                                   "    font-weight:bold;\n"
+                                   "}")
         self.label_9.setFont(font)
         self.label_9.setObjectName("label_9")
         self.stackedWidget.addWidget(self.page_3)
@@ -275,14 +311,22 @@ class Ui_MainWindow(object):
         self.pushButton_9 = QtWidgets.QPushButton(self.widget_8)
         self.pushButton_9.setGeometry(QtCore.QRect(550, 320, 61, 51))
         self.pushButton_9.setStyleSheet("#pushButton_9{\n"
-"    image: url(:/icons/icons/传入_afferent.png);\n"
+# "    image: url(:/icons/icons/传入_afferent.png);\n"
+                                        "    background-color: rgb(168, 214, 255);\n"
+"    border-radius:6px;\n"
+"    border:1px solid rgb(0,0,0);\n"
 "}")
         self.pushButton_9.setText("")
+        icon1 = QtGui.QIcon()
+        icon1.addPixmap(QtGui.QPixmap("icons/内部传输_internal-transmission.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_9.setIcon(icon1)
+        self.pushButton_9.setIconSize(QtCore.QSize(40, 40))
         self.pushButton_9.setObjectName("pushButton_9")
         self.label_16 = QtWidgets.QLabel(self.widget_8)
         self.label_16.setGeometry(QtCore.QRect(160, 80, 201, 211))
-        self.label_16.setStyleSheet("image: url(:/icons/icons/人像卡片上_people-top-card.png);")
         self.label_16.setText("")
+        self.label_16.setPixmap(QtGui.QPixmap("icons/人像卡片上_people-top-card.png"))
+        self.label_16.setScaledContents(True)
         self.label_16.setObjectName("label_16")
         self.pushButton_10 = QtWidgets.QPushButton(self.widget_8)
         self.pushButton_10.setGeometry(QtCore.QRect(140, 390, 231, 41))
@@ -291,7 +335,15 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.pushButton_10.setFont(font)
-        self.pushButton_10.setStyleSheet("")
+        self.pushButton_10.setStyleSheet("#pushButton_10{\n"
+"    \n"
+"    \n"
+"    background-color: rgb(168, 214, 255);\n"
+"    border-radius:6px;\n"
+"    border:1px solid rgb(0,0,0);\n"
+"    font:20px;\n"
+"    font-weight: bold;\n"
+"}")
         self.pushButton_10.setObjectName("pushButton_10")
         self.comboBox = QtWidgets.QComboBox(self.widget_8)
         self.comboBox.setGeometry(QtCore.QRect(140, 300, 231, 41))
@@ -330,11 +382,11 @@ class Ui_MainWindow(object):
         self.groupBox_15.setTitle("")
         self.groupBox_15.setObjectName("groupBox_15")
         self.label_14 = QtWidgets.QLabel(self.groupBox_15)
-        self.label_14.setGeometry(QtCore.QRect(20, 20, 111, 31))
-        font = QtGui.QFont()
-        font.setPointSize(11)
-        font.setBold(True)
-        font.setWeight(75)
+        self.label_14.setGeometry(QtCore.QRect(300, 30, 200, 32))
+        self.label_14.setStyleSheet("#label_14{\n"
+                                   "    font:30px;\n"
+                                   "    font-weight:bold;\n"
+                                   "}")
         self.label_14.setFont(font)
         self.label_14.setObjectName("label_14")
         self.groupBox_7.raise_()
@@ -407,18 +459,26 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.pushButton_12.setFont(font)
-        self.pushButton_12.setStyleSheet("")
+        self.pushButton_12.setStyleSheet("#pushButton_12{\n"
+"    \n"
+"    \n"
+"    background-color: rgb(168, 214, 255);\n"
+"    border-radius:6px;\n"
+"    border:1px solid rgb(0,0,0);\n"
+"    font:20px;\n"
+"    font-weight: bold;\n"
+"}")
         self.pushButton_12.setObjectName("pushButton_12")
         self.groupBox_14 = QtWidgets.QGroupBox(self.widget_10)
         self.groupBox_14.setGeometry(QtCore.QRect(10, 10, 861, 81))
         self.groupBox_14.setTitle("")
         self.groupBox_14.setObjectName("groupBox_14")
         self.label_19 = QtWidgets.QLabel(self.groupBox_14)
-        self.label_19.setGeometry(QtCore.QRect(30, 20, 101, 31))
-        font = QtGui.QFont()
-        font.setPointSize(11)
-        font.setBold(True)
-        font.setWeight(75)
+        self.label_19.setGeometry(QtCore.QRect(320, 30, 200, 32))
+        self.label_19.setStyleSheet("#label_19{\n"
+                                   "    font:30px;\n"
+                                   "    font-weight:bold;\n"
+                                   "}")
         self.label_19.setFont(font)
         self.label_19.setObjectName("label_19")
         self.stackedWidget.addWidget(self.page_5)
@@ -432,11 +492,11 @@ class Ui_MainWindow(object):
         self.groupBox_12.setTitle("")
         self.groupBox_12.setObjectName("groupBox_12")
         self.label_23 = QtWidgets.QLabel(self.groupBox_12)
-        self.label_23.setGeometry(QtCore.QRect(10, 20, 141, 41))
-        font = QtGui.QFont()
-        font.setPointSize(11)
-        font.setBold(True)
-        font.setWeight(75)
+        self.label_23.setGeometry(QtCore.QRect(300, 30, 200, 32))
+        self.label_23.setStyleSheet("#label_23{\n"
+                                   "    font:30px;\n"
+                                   "    font-weight:bold;\n"
+                                   "}")
         self.label_23.setFont(font)
         self.label_23.setObjectName("label_23")
         self.widget_12 = QtWidgets.QWidget(self.page_6)
@@ -489,7 +549,15 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.pushButton_14.setFont(font)
-        self.pushButton_14.setStyleSheet("")
+        self.pushButton_14.setStyleSheet("#pushButton_14{\n"
+"    \n"
+"    \n"
+"    background-color: rgb(168, 214, 255);\n"
+"    border-radius:6px;\n"
+"    border:1px solid rgb(0,0,0);\n"
+"    font:20px;\n"
+"    font-weight: bold;\n"
+"}")
         self.pushButton_14.setObjectName("pushButton_14")
         self.stackedWidget.addWidget(self.page_6)
         self.pushButton_13 = QtWidgets.QPushButton(self.frame_2)
@@ -520,9 +588,10 @@ class Ui_MainWindow(object):
         self.label_3.setFont(font)
         self.label_3.setObjectName("label_3")
         self.label_33 = QtWidgets.QLabel(self.groupBox_4)
-        self.label_33.setGeometry(QtCore.QRect(630, 0, 151, 91))
-        self.label_33.setStyleSheet("image: url(:/icons/icons/家庭_family.png);")
+        self.label_33.setGeometry(QtCore.QRect(630, 0, 100, 100))
         self.label_33.setText("")
+        self.label_33.setPixmap(QtGui.QPixmap("icons/人员_people.png"))
+        self.label_33.setScaledContents(True)
         self.label_33.setObjectName("label_33")
         self.groupBox_6 = QtWidgets.QGroupBox(self.frame_2)
         self.groupBox_6.setGeometry(QtCore.QRect(30, 110, 191, 741))
@@ -535,7 +604,15 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.pushButton_6.setFont(font)
-        self.pushButton_6.setStyleSheet("")
+        self.pushButton_6.setStyleSheet("#pushButton_6{\n"
+"    \n"
+"    \n"
+"    background-color: rgb(168, 214, 255);\n"
+"    border-radius:6px;\n"
+"    border:1px solid rgb(0,0,0);\n"
+"    font:20px;\n"
+"    font-weight: bold;\n"
+"}")
         self.pushButton_6.setObjectName("pushButton_6")
         self.pushButton_5 = QtWidgets.QPushButton(self.groupBox_6)
         self.pushButton_5.setGeometry(QtCore.QRect(10, 220, 161, 41))
@@ -544,7 +621,15 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.pushButton_5.setFont(font)
-        self.pushButton_5.setStyleSheet("")
+        self.pushButton_5.setStyleSheet("#pushButton_5{\n"
+"    \n"
+"    \n"
+"    background-color: rgb(168, 214, 255);\n"
+"    border-radius:6px;\n"
+"    border:1px solid rgb(0,0,0);\n"
+"    font:20px;\n"
+"    font-weight: bold;\n"
+"}")
         self.pushButton_5.setObjectName("pushButton_5")
         self.pushButton_4 = QtWidgets.QPushButton(self.groupBox_6)
         self.pushButton_4.setGeometry(QtCore.QRect(10, 170, 161, 41))
@@ -553,7 +638,15 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.pushButton_4.setFont(font)
-        self.pushButton_4.setStyleSheet("")
+        self.pushButton_4.setStyleSheet("#pushButton_4{\n"
+"    \n"
+"    \n"
+"    background-color: rgb(168, 214, 255);\n"
+"    border-radius:6px;\n"
+"    border:1px solid rgb(0,0,0);\n"
+"    font:20px;\n"
+"    font-weight: bold;\n"
+"}")
         self.pushButton_4.setObjectName("pushButton_4")
         self.pushButton_3 = QtWidgets.QPushButton(self.groupBox_6)
         self.pushButton_3.setGeometry(QtCore.QRect(10, 120, 161, 41))
@@ -562,7 +655,15 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.pushButton_3.setFont(font)
-        self.pushButton_3.setStyleSheet("")
+        self.pushButton_3.setStyleSheet("#pushButton_3{\n"
+"    \n"
+"    \n"
+"    background-color: rgb(168, 214, 255);\n"
+"    border-radius:6px;\n"
+"    border:1px solid rgb(0,0,0);\n"
+"    font:20px;\n"
+"    font-weight: bold;\n"
+"}")
         self.pushButton_3.setObjectName("pushButton_3")
         self.pushButton_2 = QtWidgets.QPushButton(self.groupBox_6)
         self.pushButton_2.setGeometry(QtCore.QRect(10, 70, 161, 41))
@@ -571,7 +672,15 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.pushButton_2.setFont(font)
-        self.pushButton_2.setStyleSheet("")
+        self.pushButton_2.setStyleSheet("#pushButton_2{\n"
+"    \n"
+"    \n"
+"    background-color: rgb(168, 214, 255);\n"
+"    border-radius:6px;\n"
+"    border:1px solid rgb(0,0,0);\n"
+"    font:20px;\n"
+"    font-weight: bold;\n"
+"}")
         self.pushButton_2.setObjectName("pushButton_2")
         self.pushButton = QtWidgets.QPushButton(self.groupBox_6)
         self.pushButton.setGeometry(QtCore.QRect(10, 20, 161, 41))
@@ -580,7 +689,17 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.pushButton.setFont(font)
-        self.pushButton.setStyleSheet("")
+        self.pushButton.setStyleSheet("#pushButton{\n"
+"    \n"
+"    \n"
+"    background-color: rgb(168, 214, 255);\n"
+"    border-radius:6px;\n"
+"    border:1px solid rgb(0,0,0);\n"
+"    font:20px;\n"
+"    font-weight: bold;\n"
+"\n"
+"    \n"
+"}")
         self.pushButton.setObjectName("pushButton")
         self.pushButton_16 = QtWidgets.QPushButton(self.groupBox_6)
         self.pushButton_16.setGeometry(QtCore.QRect(10, 320, 161, 41))
@@ -589,16 +708,27 @@ class Ui_MainWindow(object):
         font.setBold(True)
         font.setWeight(75)
         self.pushButton_16.setFont(font)
-        self.pushButton_16.setStyleSheet("")
+        self.pushButton_16.setStyleSheet("#pushButton_16{\n"
+"    \n"
+"    \n"
+"    background-color: rgb(168, 214, 255);\n"
+"    border-radius:6px;\n"
+"    border:1px solid rgb(0,0,0);\n"
+"    font:20px;\n"
+"    font-weight: bold;\n"
+"\n"
+"    \n"
+"}")
         self.pushButton_16.setObjectName("pushButton_16")
         self.groupBox_8 = QtWidgets.QGroupBox(self.frame_2)
         self.groupBox_8.setGeometry(QtCore.QRect(30, 10, 191, 91))
         self.groupBox_8.setTitle("")
         self.groupBox_8.setObjectName("groupBox_8")
         self.label = QtWidgets.QLabel(self.groupBox_8)
-        self.label.setGeometry(QtCore.QRect(10, 10, 161, 81))
-        self.label.setStyleSheet("image: url(:/icons/icons/AirPlay_airplay.png);")
+        self.label.setGeometry(QtCore.QRect(40, 0, 100, 100))
         self.label.setText("")
+        self.label.setPixmap(QtGui.QPixmap("icons/电脑_computer.png"))
+        self.label.setScaledContents(True)
         self.label.setObjectName("label")
         self.horizontalLayout.addWidget(self.frame_2)
         MainWindow.setCentralWidget(self.centralwidget)
@@ -622,6 +752,7 @@ class Ui_MainWindow(object):
         self.groupBox_5.setTitle(_translate("MainWindow", "各平均时长占比"))
         item = self.tableWidget.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "学生姓名"))
+        self.tableWidget.setStyleSheet("#item{ background-color: %s; }" % QColor(0, 0, 0).name())
         item = self.tableWidget.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "学生ID"))
         item = self.tableWidget.horizontalHeaderItem(2)
@@ -650,7 +781,7 @@ class Ui_MainWindow(object):
         self.label_21.setText(_translate("MainWindow", "班级："))
         self.label_22.setText(_translate("MainWindow", "监控编码："))
         self.pushButton_12.setText(_translate("MainWindow", "保存"))
-        self.label_19.setText(_translate("MainWindow", "绑定监控："))
+        self.label_19.setText(_translate("MainWindow", "绑定监控"))
         self.label_23.setText(_translate("MainWindow", "创建班级信息"))
         self.label_24.setText(_translate("MainWindow", "教师ID："))
         self.label_25.setText(_translate("MainWindow", "年级："))
@@ -665,12 +796,4 @@ class Ui_MainWindow(object):
         self.pushButton_2.setText(_translate("MainWindow", "学生列表"))
         self.pushButton.setText(_translate("MainWindow", "班级概况"))
         self.pushButton_16.setText(_translate("MainWindow", "刷新"))
-
-if __name__ == '__main__':
-    import sys
-    app = QApplication(sys.argv)
-    win = Ui_MainWindow()
-    Main_win = QMainWindow()
-    win.setupUi(Main_win)
-    Main_win.show()
-    app.exec_()
+import resource_rc

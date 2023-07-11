@@ -142,7 +142,7 @@ def regist(request):
     # 系统创建tid
     AdminAccount = teacher_account.objects.filter(taccount='admin')
     newTid = AdminAccount.first().tid
-    AdminTid = 't' + str(int(newTid[1:]) + 1)
+    AdminTid = 't' + str(int(newTid[1:]) + 1 )
     AdminAccount.update(tid=AdminTid)
 
     teacher_account.objects.create(tid=newTid, taccount=account, tpassword=password)

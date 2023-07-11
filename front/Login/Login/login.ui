@@ -213,8 +213,8 @@ border-radius:8px;</string>
      <rect>
       <x>620</x>
       <y>220</y>
-      <width>21</width>
-      <height>16</height>
+      <width>41</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -225,6 +225,12 @@ border-radius:8px;</string>
     </property>
     <property name="text">
      <string/>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>30</width>
+      <height>30</height>
+     </size>
     </property>
    </widget>
    <widget class="QWidget" name="widget_3" native="true">
@@ -302,6 +308,34 @@ border-radius:8px;</string>
      </property>
     </widget>
    </widget>
+   <widget class="QPushButton" name="pushButton_6">
+    <property name="geometry">
+     <rect>
+      <x>570</x>
+      <y>220</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">#pushButton_6{
+    border:none;
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset>
+      <normaloff>icons/min.png</normaloff>icons/min.png</iconset>
+    </property>
+    <property name="iconSize">
+     <size>
+      <width>38</width>
+      <height>38</height>
+     </size>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources>
@@ -321,6 +355,22 @@ border-radius:8px;</string>
     <hint type="destinationlabel">
      <x>723</x>
      <y>203</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_6</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>showMinimized()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>560</x>
+     <y>240</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>554</x>
+     <y>450</y>
     </hint>
    </hints>
   </connection>
