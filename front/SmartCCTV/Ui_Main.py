@@ -628,7 +628,7 @@ class Ui_MainWindow(object):
         self.comboBox_mo.setObjectName("comboBox_mo")
 
         self.button_show_mo = QtWidgets.QPushButton(self.page_7)
-        self.button_show_mo.setGeometry(QtCore.QRect(35, 320, 121, 31))
+        self.button_show_mo.setGeometry(QtCore.QRect(250, 320, 121, 31))
         font = QtGui.QFont()
         font.setPointSize(11)
         font.setBold(True)
@@ -645,23 +645,23 @@ class Ui_MainWindow(object):
                                          "}")
         self.button_show_mo.setObjectName("button_show_mo")
 
-        self.button_close_mo = QtWidgets.QPushButton(self.page_7)
-        self.button_close_mo.setGeometry(QtCore.QRect(250, 320, 121, 31))
-        font = QtGui.QFont()
-        font.setPointSize(11)
-        font.setBold(True)
-        font.setWeight(75)
-        self.button_close_mo.setFont(font)
-        self.button_close_mo.setStyleSheet("#button_close_mo{\n"
-                                          "    \n"
-                                          "    \n"
-                                          "    background-color: rgb(168, 214, 255);\n"
-                                          "    border-radius:6px;\n"
-                                          "    border:1px solid rgb(0,0,0);\n"
-                                          "    font:20px;\n"
-                                          "    font-weight: bold;\n"
-                                          "}")
-        self.button_close_mo.setObjectName("button_close_mo")
+        # self.button_close_mo = QtWidgets.QPushButton(self.page_7)
+        # self.button_close_mo.setGeometry(QtCore.QRect(250, 320, 121, 31))
+        # font = QtGui.QFont()
+        # font.setPointSize(11)
+        # font.setBold(True)
+        # font.setWeight(75)
+        # self.button_close_mo.setFont(font)
+        # self.button_close_mo.setStyleSheet("#button_close_mo{\n"
+        #                                   "    \n"
+        #                                   "    \n"
+        #                                   "    background-color: rgb(168, 214, 255);\n"
+        #                                   "    border-radius:6px;\n"
+        #                                   "    border:1px solid rgb(0,0,0);\n"
+        #                                   "    font:20px;\n"
+        #                                   "    font-weight: bold;\n"
+        #                                   "}")
+        # self.button_close_mo.setObjectName("button_close_mo")
 
         self.label_monitor_2 = QtWidgets.QLabel(self.widget_change_monitor)
         self.label_monitor_2.setGeometry(QtCore.QRect(600, 150, 200, 200))
@@ -951,7 +951,7 @@ class Ui_MainWindow(object):
         self.label_26.setText(_translate("MainWindow", "班级号（请填写数字）："))
         self.pushButton_14.setText(_translate("MainWindow", "保存"))
         self.button_show_mo.setText(_translate("MainWindow", "显示监控"))
-        self.button_close_mo.setText(_translate("MainWindow", "关闭监控"))
+        # self.button_close_mo.setText(_translate("MainWindow", "关闭监控"))
         self.label_2.setText(_translate("MainWindow", "教室智能监控与分析系统"))
         self.label_3.setText(_translate("MainWindow", "欢迎！"))
         self.pushButton_mo.setText(_translate("MainWindow", "显示监控"))

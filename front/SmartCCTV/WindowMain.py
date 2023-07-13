@@ -1,6 +1,7 @@
 from this import s
 from tkinter import filedialog
 
+from insightface.app import FaceAnalysis
 from matplotlib import pyplot as plt
 import Ui_Main
 import sys
@@ -8,13 +9,12 @@ from PyQt5.QtWidgets import QApplication, QMainWindow, QMessageBox, QTableWidget
 from PyQt5.QtGui import QPixmap
 import requests
 import json
-import pyqtgraph
-import numpy
+
 from tkinter import Tk, filedialog
 import datetime
 import xlrd as xlrd
 import numpy as np
-from face_recgnize.SmartCCTV.camera import open_camera, close_mo
+from face_reco_from_camera import main_1
 from qt_material import apply_stylesheet
 
 # back program port
@@ -46,7 +46,6 @@ class pages_window(Ui_Main.Ui_MainWindow, QMainWindow):
 
         self.pushButton_mo.clicked.connect(self.display_page7)
         self.button_show_mo.clicked.connect(self.show_mo)
-        self.button_close_mo.clicked.connect(self.close_mo)
 
         # 点击第八个按钮(教师信息录入页的保存)
         self.pushButton_8.clicked.connect(self.buttonFuc8)
@@ -436,10 +435,9 @@ class pages_window(Ui_Main.Ui_MainWindow, QMainWindow):
         QMessageBox.information(self,'提示','刷新系统成功',QMessageBox.Yes, QMessageBox.Yes)
 
     def show_mo(self):
-        self.cap = open_camera()
+        main_1()
 
-    def close_mo(self):
-        close_mo(self.cap)
+
 
     def display_page(self):
         self.stackedWidget.setCurrentIndex(0)
