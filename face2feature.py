@@ -54,10 +54,9 @@ def return_features_mean_personX(personX):
         return None
 
 
-# 定义写入CSV文件的函数
 def write_to_csv(features_dict):
-    # 打开CSV文件，如果不存在则创建一个新文件，如果存在则追加内容
-    with open('data/features_all.csv', 'a') as f:
+    # 打开CSV文件，如果不存在则创建一个新文件，如果存在则覆盖原有内容
+    with open('data/features_all.csv', 'w') as f:
         # 遍历特征字典的键值对
         for name, feature in features_dict.items():
             # 如果特征不为空，将姓名和特征转换为字符串，并用逗号分隔，写入一行
@@ -66,10 +65,7 @@ def write_to_csv(features_dict):
                 f.write(line)
 
 
-if __name__ == '__main__':
-    # 创建人脸分析对象
-    app = FaceAnalysis(name='my_model_zoo', providers=['CPUExecutionProvider'])
-    app.prepare(ctx_id=0)
+def main_f2f():
     # 获取data/data_faces_from_camera/ 文件夹下的所有子文件夹名，即人名
     persons = os.listdir('data/data_faces_from_camera/')
     # 创建一个空字典，用于存储每个人名和对应的特征均值
@@ -80,6 +76,12 @@ if __name__ == '__main__':
         features_dict[person] = return_features_mean_personX(person)
     # 调用write_to_csv函数，将字典中的内容写入CSV文件中
     write_to_csv(features_dict)
+
+if __name__ == '__main__':
+    # 创建人脸分析对象
+    app = FaceAnalysis(name='my_model_zoo', providers=['CPUExecutionProvider'])
+    app.prepare(ctx_id=0)
+    main_f2f()
 
 
 
