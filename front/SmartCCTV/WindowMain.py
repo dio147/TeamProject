@@ -14,7 +14,7 @@ from tkinter import Tk, filedialog
 import datetime
 import xlrd as xlrd
 import numpy as np
-from face_recgnize.SmartCCTV.camera import open_camera, close_mo, stop_flag, close_camera
+from face_recgnize.SmartCCTV.camera import open_camera, close_mo
 from qt_material import apply_stylesheet
 
 # back program port
