@@ -16,6 +16,18 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1100, 865)
+
+        self.MainWindow = MainWindow
+        MainWindow.setWindowFlags(QtCore.Qt.CustomizeWindowHint)
+        MainWindow.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        MainWindow.setAttribute(QtCore.Qt.WA_TranslucentBackground)
+
+        MainWindow.setMouseTracking(True)
+        MainWindow._startPos = None
+        MainWindow.mousePressEvent = self.mousePressEvent
+        MainWindow.mouseMoveEvent = self.mouseMoveEvent
+        MainWindow.mouseReleaseEvent = self.mouseReleaseEvent
+
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.label_back = QtWidgets.QLabel(self.centralwidget)
@@ -24,6 +36,7 @@ class Ui_MainWindow(object):
                                       "background-color: rgb(188, 234, 255);")
         self.label_back.setText("")
         self.label_back.setObjectName("label_back")
+
         self.layoutWidget = QtWidgets.QWidget(self.centralwidget)
         self.layoutWidget.setGeometry(QtCore.QRect(0, 0, 1101, 841))
         self.layoutWidget.setObjectName("layoutWidget")
@@ -121,10 +134,11 @@ class Ui_MainWindow(object):
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
         self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 98, 1800))
 
-        self.setStyleSheet("background-color: %s;" % QColor(188, 234, 255).name())
+        self.scrollAreaWidgetContents.setStyleSheet("background-color: %s;" % QColor(188, 234, 255).name())
 
         self.scrollAreaWidgetContents.setMinimumSize(QtCore.QSize(0, 1800))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
+
         self.groupBox = QtWidgets.QGroupBox(self.scrollAreaWidgetContents)
         self.groupBox.setGeometry(QtCore.QRect(10, 10, 810, 500))
         self.groupBox.setStyleSheet("QGroupBox { background-color: %s; }" % QColor(188, 234, 255).name())
@@ -157,9 +171,11 @@ class Ui_MainWindow(object):
         self.groupBox_10 = QtWidgets.QGroupBox(self.page_2)
         self.groupBox_10.setGeometry(QtCore.QRect(0, 0, 851, 721))
         self.groupBox_10.setTitle("")
+        self.groupBox_10.setStyleSheet("background-color: rgb(188, 234, 255);")
         self.groupBox_10.setObjectName("groupBox_10")
         self.tableWidget = QtWidgets.QTableWidget(self.groupBox_10)
         self.tableWidget.setGeometry(QtCore.QRect(10, 80, 801, 621))
+        self.tableWidget.setStyleSheet("background-color: rgb(188, 234, 255);")
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(6)
         self.tableWidget.setRowCount(0)
@@ -270,8 +286,14 @@ class Ui_MainWindow(object):
         self.lineEdit_4.setGeometry(QtCore.QRect(210, 360, 321, 31))
         self.lineEdit_4.setStyleSheet("")
         self.lineEdit_4.setObjectName("lineEdit_4")
+        self.label_teacher = QtWidgets.QLabel(self.widget_6)
+        self.label_teacher.setGeometry(QtCore.QRect(600, 250, 200, 200))
+        self.label_teacher.setText("")
+        self.label_teacher.setPixmap(QtGui.QPixmap("icons/teacher.png"))
+        self.label_teacher.setScaledContents(True)
+        self.label_teacher.setObjectName("label_teacher")
         self.pushButton_8 = QtWidgets.QPushButton(self.groupBox_3)
-        self.pushButton_8.setGeometry(QtCore.QRect(200, 460, 121, 28))
+        self.pushButton_8.setGeometry(QtCore.QRect(320, 460, 121, 28))
         self.pushButton_8.setStyleSheet("#pushButton_8{\n"
 "    \n"
 "    \n"
@@ -311,7 +333,6 @@ class Ui_MainWindow(object):
         self.pushButton_9 = QtWidgets.QPushButton(self.widget_8)
         self.pushButton_9.setGeometry(QtCore.QRect(550, 320, 61, 51))
         self.pushButton_9.setStyleSheet("#pushButton_9{\n"
-# "    image: url(:/icons/icons/传入_afferent.png);\n"
                                         "    background-color: rgb(168, 214, 255);\n"
 "    border-radius:6px;\n"
 "    border:1px solid rgb(0,0,0);\n"
@@ -325,7 +346,8 @@ class Ui_MainWindow(object):
         self.label_16 = QtWidgets.QLabel(self.widget_8)
         self.label_16.setGeometry(QtCore.QRect(160, 80, 201, 211))
         self.label_16.setText("")
-        self.label_16.setPixmap(QtGui.QPixmap("icons/人像卡片上_people-top-card.png"))
+        self.label_16.setStyleSheet("background-image: url('icons/人像卡片上_people-top-card.png');")
+        # self.label_16.setPixmap(QtGui.QPixmap("icons/人像卡片上_people-top-card.png"))
         self.label_16.setScaledContents(True)
         self.label_16.setObjectName("label_16")
         self.pushButton_10 = QtWidgets.QPushButton(self.widget_8)
@@ -452,6 +474,14 @@ class Ui_MainWindow(object):
         self.comboBox_3.setStyleSheet("border:2px solid rgb(0,0,0)")
         self.comboBox_3.setPlaceholderText("")
         self.comboBox_3.setObjectName("comboBox_3")
+
+        self.label_monitor = QtWidgets.QLabel(self.widget_10)
+        self.label_monitor.setGeometry(QtCore.QRect(600, 250, 200, 200))
+        self.label_monitor.setText("")
+        self.label_monitor.setPixmap(QtGui.QPixmap("icons/监控摄像头_monitor-camera.png"))
+        self.label_monitor.setScaledContents(True)
+        self.label_monitor.setObjectName("label_monitor")
+
         self.pushButton_12 = QtWidgets.QPushButton(self.groupBox_11)
         self.pushButton_12.setGeometry(QtCore.QRect(190, 330, 141, 41))
         font = QtGui.QFont()
@@ -530,6 +560,7 @@ class Ui_MainWindow(object):
         self.comboBox_4.setGeometry(QtCore.QRect(90, 190, 321, 31))
         self.comboBox_4.setStyleSheet("border:2px solid rgb(0,0,0)")
         self.comboBox_4.setObjectName("comboBox_4")
+
         self.label_26 = QtWidgets.QLabel(self.groupBox_13)
         self.label_26.setGeometry(QtCore.QRect(90, 260, 221, 41))
         font = QtGui.QFont()
@@ -542,6 +573,14 @@ class Ui_MainWindow(object):
         self.lineEdit_7.setGeometry(QtCore.QRect(90, 320, 321, 31))
         self.lineEdit_7.setStyleSheet("border:2px solid rgb(0,0,0)")
         self.lineEdit_7.setObjectName("lineEdit_7")
+
+        self.label_class = QtWidgets.QLabel(self.widget_12)
+        self.label_class.setGeometry(QtCore.QRect(600, 150, 200, 200))
+        self.label_class.setText("")
+        self.label_class.setPixmap(QtGui.QPixmap("icons/class.png"))
+        self.label_class.setScaledContents(True)
+        self.label_class.setObjectName("label_class")
+
         self.pushButton_14 = QtWidgets.QPushButton(self.groupBox_13)
         self.pushButton_14.setGeometry(QtCore.QRect(190, 480, 121, 31))
         font = QtGui.QFont()
@@ -560,19 +599,106 @@ class Ui_MainWindow(object):
 "}")
         self.pushButton_14.setObjectName("pushButton_14")
         self.stackedWidget.addWidget(self.page_6)
-        self.pushButton_13 = QtWidgets.QPushButton(self.frame_2)
-        self.pushButton_13.setGeometry(QtCore.QRect(1060, 10, 31, 21))
-        self.pushButton_13.setStyleSheet("#pushButton_13{\n"
-"     border:none;\n"
-"\n"
-"    image: url(:/icons1/icons1/关闭_close-one.png);\n"
-"}")
-        self.pushButton_13.setText("")
-        self.pushButton_13.setObjectName("pushButton_13")
+
+        self.page_7 = QtWidgets.QWidget()
+        self.page_7.setObjectName("page_7")
+        self.widget_change_monitor = QtWidgets.QWidget(self.page_7)
+        self.widget_change_monitor.setGeometry(QtCore.QRect(-10, -10, 921, 791))
+        self.widget_change_monitor.setObjectName("widget_change_monitor")
+        self.groupBox_monitor = QtWidgets.QGroupBox(self.widget_change_monitor)
+        self.groupBox_monitor.setGeometry(QtCore.QRect(10, 100, 861, 441))
+        self.groupBox_monitor.setTitle("")
+        self.groupBox_monitor.setObjectName("groupBox_monitor")
+        self.label_mo = QtWidgets.QLabel(self.groupBox_monitor)
+        self.label_mo.setGeometry(QtCore.QRect(60, 50, 71, 41))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.label_mo.setFont(font)
+        self.label_mo.setObjectName("label_mo")
+
+        self.comboBox_mo = QtWidgets.QComboBox(self.groupBox_monitor)
+        self.comboBox_mo.setGeometry(QtCore.QRect(200, 60, 221, 31))
+        font = QtGui.QFont()
+        font.setPointSize(8)
+        self.comboBox_mo.setFont(font)
+        self.comboBox_mo.setStyleSheet("border:2px solid rgb(0,0,0)")
+        self.comboBox_mo.setPlaceholderText("")
+        self.comboBox_mo.setObjectName("comboBox_mo")
+
+        self.button_show_mo = QtWidgets.QPushButton(self.page_7)
+        self.button_show_mo.setGeometry(QtCore.QRect(35, 320, 121, 31))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_show_mo.setFont(font)
+        self.button_show_mo.setStyleSheet("#button_show_mo{\n"
+                                         "    \n"
+                                         "    \n"
+                                         "    background-color: rgb(168, 214, 255);\n"
+                                         "    border-radius:6px;\n"
+                                         "    border:1px solid rgb(0,0,0);\n"
+                                         "    font:20px;\n"
+                                         "    font-weight: bold;\n"
+                                         "}")
+        self.button_show_mo.setObjectName("button_show_mo")
+
+        self.button_close_mo = QtWidgets.QPushButton(self.page_7)
+        self.button_close_mo.setGeometry(QtCore.QRect(250, 320, 121, 31))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        font.setBold(True)
+        font.setWeight(75)
+        self.button_close_mo.setFont(font)
+        self.button_close_mo.setStyleSheet("#button_close_mo{\n"
+                                          "    \n"
+                                          "    \n"
+                                          "    background-color: rgb(168, 214, 255);\n"
+                                          "    border-radius:6px;\n"
+                                          "    border:1px solid rgb(0,0,0);\n"
+                                          "    font:20px;\n"
+                                          "    font-weight: bold;\n"
+                                          "}")
+        self.button_close_mo.setObjectName("button_close_mo")
+
+        self.label_monitor_2 = QtWidgets.QLabel(self.widget_change_monitor)
+        self.label_monitor_2.setGeometry(QtCore.QRect(600, 150, 200, 200))
+        self.label_monitor_2.setText("")
+        self.label_monitor_2.setPixmap(QtGui.QPixmap("icons/监控摄像头_monitor-camera.png"))
+        self.label_monitor_2.setScaledContents(True)
+        self.label_monitor_2.setObjectName("label_monitor_2")
+
+        self.stackedWidget.addWidget(self.page_7)
+
         self.groupBox_4 = QtWidgets.QGroupBox(self.frame_2)
         self.groupBox_4.setGeometry(QtCore.QRect(230, 10, 861, 91))
         self.groupBox_4.setTitle("")
         self.groupBox_4.setObjectName("groupBox_4")
+
+        self.pushButton_exit = QtWidgets.QPushButton(self.groupBox_4)
+        self.pushButton_exit.setGeometry(QtCore.QRect(800, 10, 41, 41))
+        self.pushButton_exit.setStyleSheet("#pushButton_exit{\n"
+                                           "    image: url(icons/关闭_close-one.png);\n"
+                                           "    border:none;\n"
+                                           "}")
+        self.pushButton_exit.setText("")
+        self.pushButton_exit.setIconSize(QtCore.QSize(30, 30))
+        self.pushButton_exit.setObjectName("pushButton_exit")
+
+        self.pushButton_min = QtWidgets.QPushButton(self.groupBox_4)
+        self.pushButton_min.setGeometry(QtCore.QRect(750, 10, 41, 41))
+        self.pushButton_min.setStyleSheet("#pushButton_min{\n"
+                                        "    border:none;\n"
+                                        "}")
+        self.pushButton_min.setText("")
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("icons/min.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        self.pushButton_min.setIcon(icon)
+        self.pushButton_min.setIconSize(QtCore.QSize(38, 38))
+        self.pushButton_min.setObjectName("pushButton_min")
+
         self.label_2 = QtWidgets.QLabel(self.groupBox_4)
         self.label_2.setGeometry(QtCore.QRect(10, 0, 441, 91))
         font = QtGui.QFont()
@@ -582,7 +708,7 @@ class Ui_MainWindow(object):
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
         self.label_3 = QtWidgets.QLabel(self.groupBox_4)
-        self.label_3.setGeometry(QtCore.QRect(790, 20, 81, 41))
+        self.label_3.setGeometry(QtCore.QRect(790, 50, 81, 41))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.label_3.setFont(font)
@@ -597,6 +723,25 @@ class Ui_MainWindow(object):
         self.groupBox_6.setGeometry(QtCore.QRect(30, 110, 191, 741))
         self.groupBox_6.setTitle("")
         self.groupBox_6.setObjectName("groupBox_6")
+
+        self.pushButton_mo = QtWidgets.QPushButton(self.groupBox_6)
+        self.pushButton_mo.setGeometry(QtCore.QRect(10, 370, 161, 41))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        font.setBold(True)
+        font.setWeight(75)
+        self.pushButton_mo.setFont(font)
+        self.pushButton_mo.setStyleSheet("#pushButton_mo{\n"
+                                        "    \n"
+                                        "    \n"
+                                        "    background-color: rgb(168, 214, 255);\n"
+                                        "    border-radius:6px;\n"
+                                        "    border:1px solid rgb(0,0,0);\n"
+                                        "    font:20px;\n"
+                                        "    font-weight: bold;\n"
+                                        "}")
+        self.pushButton_mo.setObjectName("pushButton_mo")
+
         self.pushButton_6 = QtWidgets.QPushButton(self.groupBox_6)
         self.pushButton_6.setGeometry(QtCore.QRect(10, 270, 161, 41))
         font = QtGui.QFont()
@@ -738,8 +883,25 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         self.stackedWidget.setCurrentIndex(5)
-        self.pushButton_13.clicked.connect(MainWindow.close)
+        self.pushButton_exit.clicked.connect(MainWindow.close)
+        self.pushButton_min.clicked.connect(MainWindow.showMinimized)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def mousePressEvent(self, event):
+        if event.button() == QtCore.Qt.LeftButton:
+            self._startPos = event.pos()
+
+
+    def mouseMoveEvent(self, event):
+        if self._startPos:
+            delta = event.pos() - self._startPos
+            # self.move(self.pos() + delta)
+            self.MainWindow.move(self.MainWindow.pos() + delta)
+
+
+    def mouseReleaseEvent(self, event):
+        if event.button() == QtCore.Qt.LeftButton:
+            self._startPos = None
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -777,6 +939,7 @@ class Ui_MainWindow(object):
         self.label_18.setText(_translate("MainWindow", "选择照片"))
         self.label_14.setText(_translate("MainWindow", "学生信息导入"))
         self.label_20.setText(_translate("MainWindow", "职工号："))
+        self.label_mo.setText(_translate("MainWindow", "监控号："))
         self.lineEdit_5.setPlaceholderText(_translate("MainWindow", "请输入"))
         self.label_21.setText(_translate("MainWindow", "班级："))
         self.label_22.setText(_translate("MainWindow", "监控编码："))
@@ -787,8 +950,11 @@ class Ui_MainWindow(object):
         self.label_25.setText(_translate("MainWindow", "年级："))
         self.label_26.setText(_translate("MainWindow", "班级号（请填写数字）："))
         self.pushButton_14.setText(_translate("MainWindow", "保存"))
+        self.button_show_mo.setText(_translate("MainWindow", "显示监控"))
+        self.button_close_mo.setText(_translate("MainWindow", "关闭监控"))
         self.label_2.setText(_translate("MainWindow", "教室智能监控与分析系统"))
         self.label_3.setText(_translate("MainWindow", "欢迎！"))
+        self.pushButton_mo.setText(_translate("MainWindow", "显示监控"))
         self.pushButton_6.setText(_translate("MainWindow", "创建班级"))
         self.pushButton_5.setText(_translate("MainWindow", "绑定监控"))
         self.pushButton_4.setText(_translate("MainWindow", "学生导入"))

@@ -188,8 +188,8 @@ class Ui_MainWindow(object):
         self.lineEdit.setPlaceholderText(_translate("MainWindow", "账号："))
         self.lineEdit_2.setPlaceholderText(_translate("MainWindow", "密码："))
         self.pushButton_3.setText(_translate("MainWindow", "登录"))
-        self.lineEdit_3.setPlaceholderText(_translate("MainWindow", "账号：输入教职工号"))
-        self.lineEdit_4.setPlaceholderText(_translate("MainWindow", "密码：6-12位数字和英文字母组成"))
+        self.lineEdit_3.setPlaceholderText(_translate("MainWindow", "账号：（注册用户名）"))
+        self.lineEdit_4.setPlaceholderText(_translate("MainWindow", "密码："))
         self.pushButton_4.setText(_translate("MainWindow", "注册"))
 
     def mousePressEvent(self, event):

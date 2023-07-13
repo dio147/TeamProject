@@ -14,6 +14,7 @@ from tkinter import Tk, filedialog
 import datetime
 import xlrd as xlrd
 import numpy as np
+from face_recgnize.SmartCCTV.camera import open_camera, close_mo, stop_flag, close_camera
 from qt_material import apply_stylesheet
 
 # back program port
@@ -42,6 +43,11 @@ class pages_window(Ui_Main.Ui_MainWindow, QMainWindow):
         self.pushButton_5.clicked.connect(self.display_page5)
         # 点击左侧第六个按钮切换到第六个页面
         self.pushButton_6.clicked.connect(self.display_page6)
+
+        self.pushButton_mo.clicked.connect(self.display_page7)
+        self.button_show_mo.clicked.connect(self.show_mo)
+        self.button_close_mo.clicked.connect(self.close_mo)
+
         # 点击第八个按钮(教师信息录入页的保存)
         self.pushButton_8.clicked.connect(self.buttonFuc8)
         # 点击第十四个按钮(班级创建页面的保存)
@@ -71,6 +77,7 @@ class pages_window(Ui_Main.Ui_MainWindow, QMainWindow):
         grade_list = ['2019', '2020', '2021', '2022']
         self.comboBox_4.addItems(grade_list)
         self.comboBox.addItems([])
+        self.comboBox_mo.addItems(["1111", "1112"])
 
     def tableSetRow(self, table, contentList, row):
         '''
@@ -298,7 +305,7 @@ class pages_window(Ui_Main.Ui_MainWindow, QMainWindow):
         url = localhost + "saveinfo/teacher/"
         req = requests.post(url, {'name': name, 'school': school, 'sex': sex, 'tid': tid})
         rply = json.loads(req.text)
-        self.printMessageBox(['成功', '失败', '失败'],
+        self.printMessageBox(['成功', '成功', '失败'],
                              ['信息创建成功', '信息修改成功', '未找到该教师，请检查教师号'], rply)
 
     def buttonFuc7(self):
@@ -428,6 +435,11 @@ class pages_window(Ui_Main.Ui_MainWindow, QMainWindow):
         self.initData()
         QMessageBox.information(self,'提示','刷新系统成功',QMessageBox.Yes, QMessageBox.Yes)
 
+    def show_mo(self):
+        self.cap = open_camera()
+
+    def close_mo(self):
+        close_mo(self.cap)
 
     def display_page(self):
         self.stackedWidget.setCurrentIndex(0)
@@ -447,11 +459,14 @@ class pages_window(Ui_Main.Ui_MainWindow, QMainWindow):
     def display_page6(self):
         self.stackedWidget.setCurrentIndex(5)
 
+    def display_page7(self):
+        self.stackedWidget.setCurrentIndex(6)
+
 
 def runWindow():
     app = QApplication(sys.argv)
     win = pages_window()
-    win.generateGraphics('c201914')
+    win.generateGraphics('c202014')
     # apply_stylesheet(win, theme='dark_teal.xml')
     win.show()
     sys.exit(app.exec_())
